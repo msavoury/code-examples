@@ -10,6 +10,7 @@ public class JavaScanner {
         simpleRead();
         simpleReadWithDelimiter();
         simpleReadInts();
+        simpleReadLines();
     }
 
     public static void simpleRead() throws IOException {
@@ -47,6 +48,19 @@ public class JavaScanner {
            while (s.hasNext()) {
                if (s.hasNextInt()) System.out.println(s.nextInt());
                else s.next();
+           }
+        }
+        finally {
+            if (s != null) s.close();
+        }
+    }
+
+    public static void simpleReadLines() throws IOException {
+        Scanner s = null;
+        try {
+           s = new Scanner(new File("example.txt"));
+           while (s.hasNextLine()) {
+               System.out.println(s.nextLine());
            }
         }
         finally {
